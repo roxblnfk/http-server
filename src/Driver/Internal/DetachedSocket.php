@@ -43,7 +43,8 @@ final class DetachedSocket extends ServerSocket
     public function close()
     {
         parent::close();
-        $this->client->close();
+        if ($this->client)
+            $this->client->close();
         $this->client = null;
     }
 
